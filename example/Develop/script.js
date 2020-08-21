@@ -7,21 +7,36 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
-function generatePassword () {
-  var passwordLength = prompt("How many letters do you want in your password? (8-128)");
-  while (passwordLength < 8 || passwordLength > 128) {
-  	window.alert("Password should be greater than 8 letter and less than 128 letters");
-  	prompt("How many letters do you want in your password? (8-128)");
-  };
-};
+function generatePassword() {
+  var passwordLength = prompt(
+    "How many letters do you want in your password? (8-128)"
+  );
 
+  if (passwordLength > 7 && passwordLength < 129) {
+    var lowerLetterPassword = confirm(
+      "Do you want LOWERLETTERS in your password?"
+    );
+    var upperLetterPassword = confirm(
+      "Do you want UPPERLETTERS in your password?"
+    );
+    var numberPassword = confirm("Do you want NUMBERS in your password?");
+    var specialPassword = confirm(
+      "Do you want SPECIAL LETTERS in your password?"
+    );
+  } else {
+    window.alert(
+      "Password should be greater than 8 letter and less than 128 letters"
+    );
+    prompt("How many letters do you want in your password? (8-128)");
+  }
+
+  console.log(passwordLength);
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
 
 // GIVEN I need a new, secure password
 // WHEN I click the button to generate a password
