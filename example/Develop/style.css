@@ -63,7 +63,7 @@ header {
   display: block;
   width: 100%;
   background: #e7e9eb;
-  height: 2px;
+  height: 0px;
 }
 
 .card-footer::after {
