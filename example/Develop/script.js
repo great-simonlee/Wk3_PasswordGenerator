@@ -7,17 +7,15 @@ const specialLetterList = "~!@#$%^&*()_+-=[];',./{}:<>?";
 var userPasswordInput = "";
 var userPasswordOutput = "";
 
-// Prompt 비밀번호 개수(upadown); Prompt 문자입력시(include); 전체 false일 경우; 최소한 1개 이상
 // Password questions\
-function passwordValidation(password) {
-  if (password < 8 || password > 128) {
-    alert("Password should be between 8 and 128 characters");
-  }
-}
-
 function userPasswordInputConfirm() {
-  const passwordNumber = prompt("How many?");
-  passwordValidation(passwordNumber);
+  // Password length
+  var passwordNumber = prompt("How many?");
+  while (passwordNumber < 8 || passwordNumber > 128) {
+    alert("Password should be between 8 and 128 characters");
+    var passwordNumber = prompt("How many?");
+  }
+  // Password characters
   const lowerLetterConfirm = confirm("Lower Letter?");
   const upperLetterConfirm = confirm("Upper Letter?");
   const numberConfirm = confirm("Number?");
